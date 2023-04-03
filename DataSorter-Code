@@ -1,0 +1,147 @@
+// Sorting Algorithms - Mostafa Akrami
+
+// Dependencies
+using System.ComponentModel;
+
+// Global Variables
+int[] Data = new int[100];
+string UserInput = "0";
+int UserChoice = 0;
+int i = 0;
+int Length = Data.Length;
+int NextIndex = Data[i];
+int j = i - 1;
+int Time = 0;
+// Run Sorting Algorithms
+Menu();
+
+// Menu Function
+void Menu()
+{
+    // Menu UI
+    Console.BackgroundColor = ConsoleColor.DarkYellow;
+    Console.WriteLine("________          __             _________              __                \r\n\\______ \\ _____ _/  |______     /   _____/ ____________/  |_  ___________ \r\n |    |  \\\\__  \\\\   __\\__  \\    \\_____  \\ /  _ \\_  __ \\   __\\/ __ \\_  __ \\\r\n |    `   \\/ __ \\|  |  / __ \\_  /        (  <_> )  | \\/|  | \\  ___/|  | \\/\r\n/_______  (____  /__| (____  / /_______  /\\____/|__|   |__|  \\___  >__|   \r\n        \\/     \\/          \\/          \\/                        \\/       \n");
+    Console.WriteLine("Enter your data below, typing \"Q\" when you have finished:\n");
+    Console.BackgroundColor = ConsoleColor.Black;
+
+    // Insert Data
+    while (true)
+    {
+        Console.Write("[" + i + "] ");
+        UserInput = Console.ReadLine();
+        if (UserInput == "Q")
+        {
+            goto Complete;
+        }
+        else
+        {
+            Data[i] = Int32.Parse(UserInput);
+            i++;
+        }
+        Length = i - 1;
+    }
+
+    // Exit Data Insert
+    Complete:
+    {
+        Console.BackgroundColor = ConsoleColor.DarkYellow;
+        Console.WriteLine("\nWhich sorting algorithm do you want to use on this data?\n");
+        Console.BackgroundColor = ConsoleColor.Black;
+        Console.WriteLine("1. Insertion Sort\n2. Bubble Sort\n3. Linear Search\n4. Binary Search\n");
+        Console.Write("Option: ");
+        UserChoice = Int32.Parse(Console.ReadLine());
+        switch (UserChoice)
+        {
+            case 1:
+                InsertionSort();
+                break;
+            case 2:
+                BubbleSort();
+                break;
+            case 3:
+                LinearSearch();
+                break;
+            case 4:
+                BinarySearch();
+                break;
+        }
+    }
+}
+
+// Instertion Sort Algorithm Function
+void InsertionSort()
+{
+    // Insertion Sort Logic
+    for (int i = 1; i < Length; i++)
+    {
+        j = i - 1;
+        while (j >= 0 && Data[j] > NextIndex)
+        {
+            Data[j + 1] = Data[j];
+            j = j - 1;
+        }
+        Data[j + 1] = NextIndex;
+    }
+
+    // Insertion Sort Output
+    Console.BackgroundColor = ConsoleColor.DarkYellow;
+    Console.WriteLine("Sorted Data (" + Time + " ms):\n");
+    Console.BackgroundColor = ConsoleColor.Black;
+    i = 0;
+    while (i <= Length)
+    {
+        Console.Write("[" + i + "] ");
+        Console.WriteLine(Data[i]);
+        i++;
+    }
+}
+
+// Bubble Sort Algorithm Function
+void BubbleSort()
+{
+    // Bubble Sort Logic
+
+    // Insertion Sort Output
+    Console.BackgroundColor = ConsoleColor.DarkYellow;
+    Console.WriteLine("\nData sorted in " + Time + " ms\n");
+    Console.BackgroundColor = ConsoleColor.Black;
+    i = 0;
+    while (i <= Length)
+    {
+        Console.Write("[" + i + "] ");
+        Console.WriteLine(Data[i]);
+        i++;
+    }
+}
+
+void LinearSearch()
+{
+
+    // Insertion Sort Output
+    Console.BackgroundColor = ConsoleColor.DarkYellow;
+    Console.WriteLine("\nData sorted in " + Time + " ms\n");
+    Console.BackgroundColor = ConsoleColor.Black;
+    i = 0;
+    while (i <= Length)
+    {
+        Console.Write("[" + i + "] ");
+        Console.WriteLine(Data[i]);
+        i++;
+    }
+}
+
+void BinarySearch()
+{
+
+    // Insertion Sort Output
+    Console.BackgroundColor = ConsoleColor.DarkYellow;
+    Console.WriteLine("\nData sorted in " + Time + " ms\n");
+    Console.BackgroundColor = ConsoleColor.Black;
+    i = 0;
+    while (i <= Length)
+    {
+        Console.Write("[" + i + "] ");
+        Console.WriteLine(Data[i]);
+        i++;
+    }
+}
